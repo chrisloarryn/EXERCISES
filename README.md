@@ -1,0 +1,2 @@
+# EXERCISES
+to practice mainly
