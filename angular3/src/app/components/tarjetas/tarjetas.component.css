@@ -1,0 +1,17 @@
+.container {
+  align-self: center;
+  max-width: 100vw !important;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-basis: 8rem;
+  padding-top: 10px;
+
+
+
+}
+
+.chips-mrgin {
+  margin-top: 8px !important;
+  margin-bottom: 4px !important;
+}

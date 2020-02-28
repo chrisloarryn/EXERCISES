@@ -1,0 +1,32 @@
+<div class="container" fxLayout="row" fxLayoutGap="10px">
+  <mat-card class="" fxFlex="20" *ngFor="let item of items">
+    <mat-card-header>
+      <img class="img-thumb" mat-card-avatar [src]="item?.sprites?.front_shiny || item?.sprites?.front_default">
+      <mat-card-title>{{item.name | ucwords}}</mat-card-title>
+    </mat-card-header>
+    <mat-chip-list class="chips-mrgin">
+      <mat-chip>{{item.id}}</mat-chip>
+      <mat-chip *ngFor="let ty of item.types">type: {{ty.type.name}}</mat-chip>
+    </mat-chip-list>
+    <img matCardImage [src]="item?.sprites?.front_default">
+    <mat-chip-list class="chips-mrgin">
+      <mat-chip *ngIf="item.evolves_from_species">
+        {{item.evolves_from_species?.name}}</mat-chip>
+      <mat-chip>{{item?.evolution_chain?.chain?.evolves_to[0]?.species?.name || item?.name}}</mat-chip>
+      <mat-chip
+        *ngIf="(item.evolution_chain.chain.evolves_to.length > 0 && item.evolution_chain.chain.evolves_to[0].evolves_to.length > 0)">
+        {{item?.evolution_chain?.chain?.evolves_to[0]?.evolves_to[0]?.species?.name}}</mat-chip>
+    </mat-chip-list>
+    <!--    <mat-card-content>-->
+    <!--      Text content-->
+    <!--    </mat-card-content>-->
+    <!--    <mat-card-actions align="start">-->
+    <!--      <button mat-button >Action1</button>-->
+
+    <!--    </mat-card-actions>-->
+    <!--    <mat-card-footer>-->
+    <!--      Footer-->
+    <!--    </mat-card-footer>-->
+  </mat-card>
+
+</div>
