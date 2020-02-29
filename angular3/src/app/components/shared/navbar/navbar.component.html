@@ -3,9 +3,20 @@
   <mat-toolbar-row>
     <span>Pokemons</span>
     <div fxFlex="2"></div>
+    <div>
+      <input
+        placeholder="Buscar pokemon..."
+        #termino
+        type="text"
+        (keyup)="buscar(termino.value)">
+    </div>
     <span class="example-spacer"></span>
-    <mat-icon class="example-icon" routerLink="home" matTooltip="POKEMONES" aria-hidden="false" aria-label="Example user verified icon">control_camera</mat-icon>
-    <mat-icon class="example-icon" routerLink="search" aria-hidden="false" aria-label="Example user verified icon">games</mat-icon>
+    <mat-icon class="example-icon" routerLink="home" matTooltip="POKEMONES" aria-hidden="false"
+              aria-label="Example user verified icon">control_camera
+    </mat-icon>
+    <mat-icon class="example-icon" routerLink="search" aria-hidden="false" aria-label="Example user verified icon">
+      games
+    </mat-icon>
   </mat-toolbar-row>
 
 </mat-toolbar>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {PokemonService} from "../../../services/pokemon.service.service";
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private pokemonService: PokemonService) { }
 
   ngOnInit(): void {
   }
 
+  buscar(value: string) {
+    this.pokemonService.subject.next(value);
+  }
 }

@@ -11,6 +11,8 @@ export class HomeComponent implements OnInit {
   loading: boolean;
   error: boolean;
   errorMessage: string;
+  private oldArray: any[];
+  private filter: null;
 
   constructor(private pokemonService: PokemonService) {
     this.loading = true;
@@ -42,6 +44,13 @@ export class HomeComponent implements OnInit {
           newObj.push(item);
         }
         this.obtainedPokemons = newObj;
+        if (this.filter){
+          console.log('si');
+          console.log('si');
+          console.log('si');
+          console.log('si');
+        }
+
 
         this.loading = false;
       },
@@ -54,5 +63,23 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.pokemonService.subject
+      .subscribe(res => {
+        if (res){
+          this.filter = res;
+          console.log(res);
+          if(this.obtainedPokemons){
+            let pokk = [];
+            if (!this.oldArray) this.oldArray = this.obtainedPokemons
+            const kk = this.obtainedPokemons.
+            filter(item => (item.name.includes(res)));
+            this.obtainedPokemons = kk;
+          }
+        }
+        else{
+          this.obtainedPokemons = this.oldArray;
+        }
+      });
+  }
 }

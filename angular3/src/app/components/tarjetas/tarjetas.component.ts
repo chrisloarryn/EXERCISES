@@ -12,6 +12,10 @@ export class TarjetasComponent implements OnInit {
 
   constructor(private ngRouter: Router) { }
 
+  getCssClass(): any{
+    return 'green-600-fg';
+  }
+
   ngOnInit(): void {
   }
 
