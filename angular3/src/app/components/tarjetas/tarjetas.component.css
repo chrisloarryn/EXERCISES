@@ -8,13 +8,15 @@
   padding-top: 10px;
 }
 
-mat-card{
+mat-card {
   margin-bottom: 10px !important;
   max-height: 70vh !important;
 }
-mat-card-title{
+
+mat-card-title {
   letter-spacing: 0.5px;
 }
+
 .example-card {
   max-width: 400px;
 }
@@ -23,6 +25,7 @@ mat-card-title{
   /*// background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');*/
   background-size: cover;
 }
+
 .chips-mrgin {
   margin-top: 2px !important;
   margin-bottom: 4px !important;
@@ -32,6 +35,7 @@ mat-card-title{
   color: white !important;
   background-color: cadetblue !important;
 }
+
 .my-color {
   color: white;
   font-style: italic !important;
@@ -39,24 +43,31 @@ mat-card-title{
   font-weight: normal !important;
   /* font-family: "Times New Roman", Times, serif; */
 }
-.green{
+
+.green {
   background-color: green !important;
 }
-.red{
+
+.red {
   background-color: brown !important;
 }
+
 .brown {
   background-color: sandybrown !important;
 }
+
 .yellow {
   background-color: goldenrod !important;
 }
+
 .purple {
   background-color: blueviolet !important;
 }
+
 .blue {
   background-color: royalblue !important;
 }
+
 /* default color for fly type is White but is not a color to show rn
  instead color that we use is like lightblue, or aqua*/
 .white {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PokemonService} from "../../../services/pokemon.service.service";
 
 @Component({
@@ -8,7 +8,8 @@ import {PokemonService} from "../../../services/pokemon.service.service";
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private pokemonService: PokemonService) { }
+  constructor(private pokemonService: PokemonService) {
+  }
 
   ngOnInit(): void {
   }

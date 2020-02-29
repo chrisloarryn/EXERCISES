@@ -1,5 +1,5 @@
-import { Component, OnInit } from "@angular/core";
-import { PokemonService } from "../../services/pokemon.service.service";
+import {Component, OnInit} from "@angular/core";
+import {PokemonService} from "../../services/pokemon.service.service";
 
 @Component({
   selector: "app-home",
@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
         }
         this.obtainedPokemons = newObj;
         console.log(newObj);
-        if (this.filter){
+        if (this.filter) {
           console.log('si');
           console.log('si');
           console.log('si');
@@ -67,18 +67,16 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.pokemonService.subject
       .subscribe(res => {
-        if (res){
+        if (res) {
           this.filter = res;
           //console.log(res);
-          if(this.obtainedPokemons){
+          if (this.obtainedPokemons) {
             let pokk = [];
             if (!this.oldArray) this.oldArray = this.obtainedPokemons
-            const assignFiltered = this.obtainedPokemons.
-            filter(item => (item.name.includes(res)));
+            const assignFiltered = this.obtainedPokemons.filter(item => (item.name.includes(res)));
             this.obtainedPokemons = assignFiltered;
           }
-        }
-        else{
+        } else {
           this.obtainedPokemons = this.oldArray;
         }
       });
