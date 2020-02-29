@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
     this.pokemonService.getAllPokemons().subscribe(
       (data: any) => {
         this.obtainedPokemons = [];
-        console.log(data);
+        // console.log(data);
         // old for loop is a little faster than new ones
         let newObj = [];
         for (let item of data) {
@@ -68,13 +68,13 @@ export class HomeComponent implements OnInit {
       .subscribe(res => {
         if (res){
           this.filter = res;
-          console.log(res);
+          //console.log(res);
           if(this.obtainedPokemons){
             let pokk = [];
             if (!this.oldArray) this.oldArray = this.obtainedPokemons
-            const kk = this.obtainedPokemons.
+            const assignFiltered = this.obtainedPokemons.
             filter(item => (item.name.includes(res)));
-            this.obtainedPokemons = kk;
+            this.obtainedPokemons = assignFiltered;
           }
         }
         else{
