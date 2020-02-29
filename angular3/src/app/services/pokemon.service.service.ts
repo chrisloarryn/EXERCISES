@@ -11,17 +11,31 @@ import {BehaviorSubject} from "rxjs";
 export class PokemonService {
 
   subject = new BehaviorSubject(null);
+  selectedPokemon = new BehaviorSubject(null);
   constructor(private httpClient: HttpClient) {
     console.log("servicio iniciado...");
   }
 
   set busquedaQuery(qry) {
     this.subject.next(qry);
-    console.log(this.busquedaQuery());
   }
 
   get busquedaQuery() {
     return this.subject.value;
+  }
+
+  set pokemon(pokemon) {
+    if (pokemon) {
+      this.selectedPokemon.next(pokemon);
+    }
+    else {
+      throw 'in setter function'
+    }
+
+  }
+
+  get pokemon() {
+    return this.selectedPokemon.value;
   }
 
   getQueryForResponse(query: string) {

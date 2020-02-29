@@ -44,6 +44,7 @@ export class HomeComponent implements OnInit {
           newObj.push(item);
         }
         this.obtainedPokemons = newObj;
+        console.log(newObj);
         if (this.filter){
           console.log('si');
           console.log('si');
