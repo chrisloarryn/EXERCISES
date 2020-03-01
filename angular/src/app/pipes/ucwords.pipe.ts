@@ -1,5 +1,5 @@
 import {Pipe, PipeTransform} from "@angular/core";
-
+// set uppercase to the first letter of words
 @Pipe({
     name: "ucwords"
 })
