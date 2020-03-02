@@ -29,7 +29,7 @@ export class PokemonService {
     if (pokemon) {
       this.selectedPokemon.next(pokemon);
     } else {
-      throw 'in setter function'
+      throw new Error ('in setter function');
     }
 
   }
