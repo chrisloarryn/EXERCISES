@@ -1,1 +1,32 @@
-<p>pokemon works!</p>
+<div class="container" fxLayout="row" fxLayoutGap="10px">
+  <mat-card class="" fxFlex="20" *ngIf="pokemonData">
+    <mat-card-header>
+      <img class="img-thumb example-header-image" mat-card-avatar
+           [src]="pokemonData?.sprites?.front_shiny || pokemonData?.sprites?.front_default">
+      <mat-card-title fxFlex>{{pokemonData?.name | ucwords}}</mat-card-title>
+    </mat-card-header>
+    <mat-chip-list class="chips-mrgin">
+      <mat-chip class="red-my-color">{{pokemonData?.id}}</mat-chip>
+      <mat-chip [ngClass]="pokemonData.color.name" class="my-color" *ngFor="let ty of pokemonData.types">
+        type: {{ty.type.name}}</mat-chip>
+    </mat-chip-list>
+    <img mat-card-image [src]="pokemonData?.sprites?.front_default" alt="Photo of a Shiba Inu">
+
+    <mat-chip-list class="chips-mrgin">
+      <mat-chip>
+        {{pokemonData?.evolution_chain?.chain?.species?.name}}
+      </mat-chip>
+      <mat-chip>
+        {{pokemonData?.evolution_chain?.chain?.evolves_to[0]?.species?.name}}
+      </mat-chip>
+      <mat-chip *ngIf="pokemonData.evolution_chain.chain.evolves_to[0].evolves_to.length > 0">
+        {{pokemonData?.evolution_chain?.chain?.evolves_to[0]?.evolves_to[0]?.species?.name}}
+      </mat-chip>
+    </mat-chip-list>
+<!--        <mat-card-content>-->
+    <!--          Text content-->
+    <!--        </mat-card-content>-->
+
+  </mat-card>
+
+</div>

@@ -8,16 +8,16 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['./pokemon.component.css']
 })
 export class PokemonComponent implements OnInit {
-  private pokemonData: [];
+  public pokemonData: any;
 
-  constructor(private pokemonService: PokemonService,
-              private ngRouter: Router,
-              private ngRoute: ActivatedRoute) {
+  constructor(public pokemonService: PokemonService,
+              public ngRouter: Router,
+              public ngRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
     this.pokemonData = this.pokemonService.selectedPokemon.value;
-    console.log(this.pokemonData)
+    console.log(this.pokemonData);
     if (!this.pokemonData) {
       const path = this.ngRoute.routeConfig.path;
       const arrWUrl = (path.split('/'));
