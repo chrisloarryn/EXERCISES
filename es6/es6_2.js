@@ -259,32 +259,61 @@ const totalCollectedByGameType = () => {
  */
 const clientsAndGameTypes = () => {
 
-    return gameTypes.map((value, index, array) => {
-        function objectCreated(name, amount) {
-            let obj = {ff:3};
-            Object.assign(obj, value.name)
-            return obj;
-        }
-        objectCreated((value.name), 5)
-    });
+    return gamesCategoriesTaxNumbers()
 };
 
 /**
  * 8. Object that has the types of games like keys and the names of the customers who bought the most of those types of games.
  */
 const bestSellers = () => {
+    //let s = new Set();
+    const groupByAge = gameTypes.map((it, index) => {
+         return gameSales
+            .filter((value, index1, array) => {
+                return value.typeId === it.id
+            })
+            .sort((a, b) => parseFloat(b.price) - parseFloat(a.price))
+            .map((value, index1, array) => {
+                return {...clients.find((value1, index2, array1) => {
+                    return value.clientId === value1.id
+                }), ...it}
+            })
+    }, {});
 
-    // no listo
-    return gameTypes.map((value, index, array) => {
-        const numbers = [{num: 1}, {num: 45}];
-        return {key: value.name, ammount: numbers.reduce((a, b) => ({x: parseInt(a.num) + parseInt(b.num)}))}
-    })
+
+    console.log(groupByAge)
 };
 
 /**
  * 9. Add a new client using this function, then add a new sale of a 'Simulation' type game associated with the new client for a value of 48151.
  */
 const addClient = () => {
+    let newId = 7;
+    const newClient = {
+        id: newId,
+        taxNumber: '11111111k',
+        name: 'New Client'
+    };
+    clients.push(newClient);
+    const newSold = {
+        clientId: 7,
+        typeId: 6,
+        price: 48151
+    }
+    gameSales.push(newSold);
+
+    const userReturned = clients.filter((item) => {
+        return item.id === newId;
+    })
+    const findUserSold = gameSales.filter((item) => {
+        return item.clientId === newId;
+    })
+
+    return {
+        user: userReturned,
+        sold: findUserSold
+    }
+
 };
 
 /**
