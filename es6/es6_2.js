@@ -214,7 +214,7 @@ const clientsByTotalSpent = () => {
 const gamesCategoriesTaxNumbers = () => {
     const salesCopy = gameSales;
     return gameTypes.map((value) => {
-        const pricesOrdered = gameSales.filter((value1) => {
+        const pricesOrdered = salesCopy.filter((value1) => {
             return value1.typeId === value.id
         }).map((value1Map) => {
             return clients.find(val => val.id === value1Map.clientId)
@@ -231,45 +231,42 @@ const gamesCategoriesTaxNumbers = () => {
  * 5. An array with the prices of games over 10.000 ordered from highest to lowest.
  */
 const pricesOrdered = () => {
-    const pricesFounded = gameSales.filter((item) => {
-        return item.price > 10000;
-    });
-    pricesFounded.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
-    return pricesFounded.map(item => item.price);
+    return gameSales
+        .filter((item) => {
+            return item.price > 10000;
+        })
+        .sort((a, b) => parseFloat(b.price) - parseFloat(a.price))
+        .map(item => item.price);
 };
 
 /**
  * 6. An array of objects with the types of games as keys and the total amount collected from each type as values.
  */
 const totalCollectedByGameType = () => {
-    // gameType as a key and total amount by each type
-
-    const typesCopy = gameTypes;
     const salesCopy = gameSales;
-    const data = typesCopy.map(itm => ({
-        ...salesCopy.filter((item) => (item.typeId === itm.id)),
-        ...itm
-        //...itm && item
-    }));
-    data.flatMap(item => console.log(item));
-    // return data
-
-    // return gameSales.map(item => {
-    //
-    //     return gameSales.reduce((r ,a) => {
-    //         return r
-    //     })
-    //     // return item.typeId
-    // });
-    // gameSales.reduce(item => {
-    //     item.typeId
-    // }));
+    return gameTypes.map((value) => {
+        const pricesOrdered = salesCopy.filter((value1) => {
+            return value1.typeId === value.id
+        });
+        return {
+            typeGame: value.name, sumOfPrices: pricesOrdered.reduce((acc, sales) => acc + sales.price, 0)
+        }
+    })
 };
 
 /**
  * 7. Object that contains the types of games as keys and the amount of clients that only purchased games in that type of game.
  */
 const clientsAndGameTypes = () => {
+
+    return gameTypes.map((value, index, array) => {
+        function objectCreated(name, amount) {
+            let obj = {ff:3};
+            Object.assign(obj, value.name)
+            return obj;
+        }
+        objectCreated((value.name), 5)
+    });
 };
 
 /**
@@ -294,6 +291,15 @@ const addClient = () => {
  * 10. Show a ranking of clients ordered by the total amount spent on games in decreasing order.
  */
 const ranking = () => {
+    return clients.map((value, index, array) => {
+        return {
+            clientName: value.name,
+            amountSpent: gameSales
+                .filter((item) => item.clientId === value.id)
+                .reduce((acc, sales) => acc + sales.price, 0)
+        }
+    })
+        .sort((a, b) => parseInt(b.amountSpent) - parseInt(a.amountSpent));
 };
 
 /**
@@ -305,14 +311,14 @@ const ranking = () => {
 // console.log(clientsIdsByName());
 // console.log("3rd challenge");
 // console.log(clientsByTotalSpent());
-console.log("4th challenge");
-console.log(gamesCategoriesTaxNumbers());
+// console.log("4th challenge");
+// console.log(gamesCategoriesTaxNumbers());
 // console.log("5th challenge");
 // console.log(pricesOrdered());
 // console.log("6th challenge");
 // console.log(totalCollectedByGameType());
-// console.log("7th challenge");
-// console.log(clientsAndGameTypes());
+console.log("7th challenge");
+console.log(clientsAndGameTypes());
 // console.log("8th challenge");
 // console.log(bestSellers());
 // console.log("9th challenge");
