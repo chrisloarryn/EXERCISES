@@ -332,25 +332,29 @@ const ranking = () => {
 };
 
 /**
+ * Pendientes el 7 & 8
+ */
+
+/**
  * REVIVIEW OF ANSWERS: DO NOT EDIT!
  */
-// console.log("1st challenge");
-// console.log(clientsIDs());
-// console.log("2nd challenge");
-// console.log(clientsIdsByName());
-// console.log("3rd challenge");
-// console.log(clientsByTotalSpent());
-// console.log("4th challenge");
-// console.log(gamesCategoriesTaxNumbers());
-// console.log("5th challenge");
-// console.log(pricesOrdered());
-// console.log("6th challenge");
-// console.log(totalCollectedByGameType());
+console.log("1st challenge");
+console.log(clientsIDs());
+console.log("2nd challenge");
+console.log(clientsIdsByName());
+console.log("3rd challenge");
+console.log(clientsByTotalSpent());
+console.log("4th challenge");
+console.log(gamesCategoriesTaxNumbers());
+console.log("5th challenge");
+console.log(pricesOrdered());
+console.log("6th challenge");
+console.log(totalCollectedByGameType());
 console.log("7th challenge");
 console.log(clientsAndGameTypes());
-// console.log("8th challenge");
-// console.log(bestSellers());
-// console.log("9th challenge");
-// console.log(addClient());
-// console.log("10th challenge");
-// console.log(ranking());
+console.log("8th challenge");
+console.log(bestSellers());
+console.log("9th challenge");
+console.log(addClient());
+console.log("10th challenge");
+console.log(ranking());
