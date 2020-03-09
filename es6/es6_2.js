@@ -213,8 +213,17 @@ const clientsByTotalSpent = () => {
  */
 const gamesCategoriesTaxNumbers = () => {
     const salesCopy = gameSales;
-    salesCopy.find((item) => {
-        console.log(item)
+    return gameTypes.map((value, index, array) => {
+        const pricesOrdered = gameSales.filter((value1) => {
+            return value1.typeId === value.id
+        }).map((value1Map) => {
+            return clients.find(val => val.id === value1Map.clientId)
+        }).sort((a, b) => a.name.localeCompare(b.name));
+        return {
+            typeGame: value.name, arrayTaxes: pricesOrdered.map((sales) => {
+                return sales.taxNumber
+            })
+        }
     })
 };
 
@@ -296,16 +305,16 @@ const ranking = () => {
 // console.log(clientsIdsByName());
 // console.log("3rd challenge");
 // console.log(clientsByTotalSpent());
-// console.log("4th challenge");
-// console.log(gamesCategoriesTaxNumbers());
+console.log("4th challenge");
+console.log(gamesCategoriesTaxNumbers());
 // console.log("5th challenge");
 // console.log(pricesOrdered());
 // console.log("6th challenge");
 // console.log(totalCollectedByGameType());
 // console.log("7th challenge");
 // console.log(clientsAndGameTypes());
-console.log("8th challenge");
-console.log(bestSellers());
+// console.log("8th challenge");
+// console.log(bestSellers());
 // console.log("9th challenge");
 // console.log(addClient());
 // console.log("10th challenge");
