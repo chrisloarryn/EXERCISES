@@ -10,7 +10,18 @@
 
 mat-card {
   margin-bottom: 10px !important;
-  max-height: 70vh !important;
+  max-height: fit-content !important;
+  width: fit-content !important;
+  height: fit-content !important;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  flex-basis: 8rem;
+  
+}
+
+mat-card-content{
+  font-family: "Comic Sans MS", Tahoma, serif;
+
 }
 
 mat-card-title {
