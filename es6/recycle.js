@@ -3,9 +3,9 @@
  * First name and last name.
  */
 const contacts = [{
-        firstName: 'Juanito',
-        lastName: 'Rokket'
-    },
+    firstName: 'Juanito',
+    lastName: 'Rokket'
+},
     {
         firstName: 'James',
         lastName: 'Bond'
@@ -23,8 +23,8 @@ const contacts = [{
 
 /**
  * repeat()
- * @param {*} word 
- * @param {*} times 
+ * @param {*} word
+ * @param {*} times
  */
 const repeat = (word, times) => {
     return word.repeat(times)
@@ -40,11 +40,7 @@ const repeat = (word, times) => {
  */
 
 const recylink = (contactsData) => {
-    let newList = [];
-    contactsData.forEach((contact) => {
-        newList.push(contact.lastName)
-    });
-    return newList;
+    contactsData.map(value => value.lastName)
 }
 
 /**

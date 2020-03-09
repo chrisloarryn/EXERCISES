@@ -269,12 +269,12 @@ const bestSellers = () => {
     //let s = new Set();
     const groupByAge = gameTypes.map((it, index) => {
          return gameSales
-            .filter((value, index1, array) => {
+            .filter((value) => {
                 return value.typeId === it.id
             })
             .sort((a, b) => parseFloat(b.price) - parseFloat(a.price))
-            .map((value, index1, array) => {
-                return {...clients.find((value1, index2, array1) => {
+            .map((value) => {
+                return {...clients.find((value1) => {
                     return value.clientId === value1.id
                 }), ...it}
             })
@@ -320,7 +320,7 @@ const addClient = () => {
  * 10. Show a ranking of clients ordered by the total amount spent on games in decreasing order.
  */
 const ranking = () => {
-    return clients.map((value, index, array) => {
+    return clients.map((value) => {
         return {
             clientName: value.name,
             amountSpent: gameSales
