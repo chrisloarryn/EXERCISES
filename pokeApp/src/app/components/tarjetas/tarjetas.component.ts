@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {PokemonService} from "../../services/pokemon.service.service";
+import {PokemonService} from '../../services/pokemon.service.service';
 
 @Component({
   selector: 'app-tarjetas',
@@ -10,20 +10,19 @@ import {PokemonService} from "../../services/pokemon.service.service";
 export class TarjetasComponent implements OnInit {
 
   @Input() items: any[] = [];
+  textToFind: string;
 
   constructor(private ngRouter: Router,
-              public pokemonService: PokemonService,) {
-  }
+              public pokemonService: PokemonService) {
 
-  getCssClass(): any {
-    return 'green-600-fg';
   }
 
   ngOnInit(): void {
+    this.textToFind = this.pokemonService.subject.getValue();
   }
 
   selectedPkmn(item: any) {
-    console.log((item.id).toString());
+    // console.log((item.id).toString());
     this.ngRouter.navigate(['pokemon/', item.id]);
 
   }

@@ -5,13 +5,13 @@
     <div fxFlex="2"></div>
     <div>
       <input
-        placeholder="Buscar pokemon..."
-        #termino
+        placeholder="Find Pokemon..."
+        #textFind
         type="text"
-        (keyup)="buscar(termino.value)">
+        (keyup)="findFn(textFind.value)">
     </div>
     <span class="example-spacer"></span>
-    <mat-icon class="example-icon" routerLink="home" matTooltip="POKEMONES" aria-hidden="false"
+    <mat-icon class="example-icon" routerLink="home" matTooltip="Pokemons" aria-hidden="false"
               aria-label="Example user verified icon">control_camera
     </mat-icon>
     <mat-icon class="example-icon" routerLink="home" aria-hidden="false" aria-label="Example user verified icon">

@@ -1,6 +1,6 @@
 <div class="container" fxLayout="row" fxLayoutGap="10px">
   <mat-card class="" (click)="pokemonService.pokemon = item; selectedPkmn(item);" fxFlex="20"
-            *ngFor="let item of items">
+            *ngFor="let item of items | filter : textToFind : 'name'">
     <mat-card-header>
       <img class="img-thumb example-header-image" mat-card-avatar
            [src]="item?.sprites?.front_shiny || item?.sprites?.front_default">

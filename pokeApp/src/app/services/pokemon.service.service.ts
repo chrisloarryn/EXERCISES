@@ -1,10 +1,10 @@
-import {Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
-import {map} from "rxjs/operators";
-import {BehaviorSubject} from "rxjs";
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {map} from 'rxjs/operators';
+import {BehaviorSubject} from 'rxjs';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 
 
@@ -14,14 +14,13 @@ export class PokemonService {
   selectedPokemon = new BehaviorSubject(null);
 
   constructor(private httpClient: HttpClient) {
-    // console.log("servicio iniciado...");
   }
 
-  set busquedaQuery(qry) {
+  set findQuery(qry) {
     this.subject.next(qry);
   }
 
-  get busquedaQuery() {
+  get findQuery() {
     return this.subject.value;
   }
 

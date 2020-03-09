@@ -1,5 +1,5 @@
 <div class="" style="max-width: 100vw !important;">
-  <app-tarjetas fxLayout="row" [items]="obtainedPokemons"></app-tarjetas>
+  <app-tarjetas fxLayout="row" [items]="obtainedPokemons | filter: pokemonService.findQuery :'name'"></app-tarjetas>
 
 </div>
 

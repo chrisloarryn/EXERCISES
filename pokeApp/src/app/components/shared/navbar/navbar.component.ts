@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {PokemonService} from "../../../services/pokemon.service.service";
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {PokemonService} from '../../../services/pokemon.service.service';
 
 @Component({
   selector: 'app-navbar',
@@ -14,7 +14,8 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  buscar(value: string) {
+  findFn(value: string) {
+    // tslint:disable-next-line:no-unused-expression
     this.pokemonService.subject.next(value);
   }
 }

@@ -14,14 +14,14 @@ export class HomeComponent implements OnInit {
   private oldArray: any[];
   private filter: null;
 
-  constructor(private pokemonService: PokemonService) {
+  constructor(public pokemonService: PokemonService) {
     this.loading = true;
     this.error = false;
 
     this.pokemonService.getAllPokemons().subscribe(
       (data: any) => {
         this.obtainedPokemons = [];
-        // console.log(data);
+
         // old for loop is a little faster than new ones
         let newObj = [];
         for (let item of data) {
@@ -44,15 +44,7 @@ export class HomeComponent implements OnInit {
           newObj.push(item);
         }
         this.obtainedPokemons = newObj;
-        console.log(newObj);
-        if (this.filter) {
-          console.log('si');
-          console.log('si');
-          console.log('si');
-          console.log('si');
-        }
-
-
+        // console.log(newObj);
         this.loading = false;
       },
       errorServicio => {
@@ -65,20 +57,5 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.pokemonService.subject
-      .subscribe(res => {
-        if (res) {
-          this.filter = res;
-          //console.log(res);
-          if (this.obtainedPokemons) {
-            let pokk = [];
-            if (!this.oldArray) this.oldArray = this.obtainedPokemons
-            const assignFiltered = this.obtainedPokemons.filter(item => (item.name.includes(res)));
-            this.obtainedPokemons = assignFiltered;
-          }
-        } else {
-          this.obtainedPokemons = this.oldArray;
-        }
-      });
   }
 }
