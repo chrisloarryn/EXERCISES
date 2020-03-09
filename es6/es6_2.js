@@ -258,6 +258,15 @@ const totalCollectedByGameType = () => {
  * 7. Object that contains the types of games as keys and the amount of clients that only purchased games in that type of game.
  */
 const clientsAndGameTypes = () => {
+
+    return gameTypes.map((value, index, array) => {
+        function objectCreated(name, amount) {
+            let obj = {ff:3};
+            Object.assign(obj, value.name)
+            return obj;
+        }
+        objectCreated((value.name), 5)
+    });
 };
 
 /**
@@ -282,6 +291,15 @@ const addClient = () => {
  * 10. Show a ranking of clients ordered by the total amount spent on games in decreasing order.
  */
 const ranking = () => {
+    return clients.map((value, index, array) => {
+        return {
+            clientName: value.name,
+            amountSpent: gameSales
+                .filter((item) => item.clientId === value.id)
+                .reduce((acc, sales) => acc + sales.price, 0)
+        }
+    })
+        .sort((a, b) => parseInt(b.amountSpent) - parseInt(a.amountSpent));
 };
 
 /**
