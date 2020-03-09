@@ -214,7 +214,7 @@ const clientsByTotalSpent = () => {
 const gamesCategoriesTaxNumbers = () => {
     const salesCopy = gameSales;
     return gameTypes.map((value) => {
-        const pricesOrdered = gameSales.filter((value1) => {
+        const pricesOrdered = salesCopy.filter((value1) => {
             return value1.typeId === value.id
         }).map((value1Map) => {
             return clients.find(val => val.id === value1Map.clientId)
@@ -231,11 +231,12 @@ const gamesCategoriesTaxNumbers = () => {
  * 5. An array with the prices of games over 10.000 ordered from highest to lowest.
  */
 const pricesOrdered = () => {
-    const pricesFounded = gameSales.filter((item) => {
-        return item.price > 10000;
-    });
-    pricesFounded.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
-    return pricesFounded.map(item => item.price);
+    return gameSales
+        .filter((item) => {
+            return item.price > 10000;
+        })
+        .sort((a, b) => parseFloat(b.price) - parseFloat(a.price))
+        .map(item => item.price);
 };
 
 /**
@@ -305,10 +306,10 @@ const ranking = () => {
 // console.log(clientsIdsByName());
 // console.log("3rd challenge");
 // console.log(clientsByTotalSpent());
-console.log("4th challenge");
-console.log(gamesCategoriesTaxNumbers());
-// console.log("5th challenge");
-// console.log(pricesOrdered());
+// console.log("4th challenge");
+// console.log(gamesCategoriesTaxNumbers());
+console.log("5th challenge");
+console.log(pricesOrdered());
 // console.log("6th challenge");
 // console.log(totalCollectedByGameType());
 // console.log("7th challenge");
