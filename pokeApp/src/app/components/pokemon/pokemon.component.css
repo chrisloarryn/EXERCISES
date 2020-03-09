@@ -16,7 +16,7 @@ mat-card {
   flex-wrap: wrap;
   flex-grow: 1;
   flex-basis: 8rem;
-  
+
 }
 
 mat-card-content{
