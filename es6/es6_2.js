@@ -213,7 +213,7 @@ const clientsByTotalSpent = () => {
  */
 const gamesCategoriesTaxNumbers = () => {
     const salesCopy = gameSales;
-    return gameTypes.map((value, index, array) => {
+    return gameTypes.map((value) => {
         const pricesOrdered = gameSales.filter((value1) => {
             return value1.typeId === value.id
         }).map((value1Map) => {
