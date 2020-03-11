@@ -268,7 +268,45 @@ const totalCollectedByGameType = () => {
  * 7. Object that contains the types of games as keys and the amount of clients that only purchased games in that type of game.
  */
 const clientsAndGameTypes = () => {
-  return gamesCategoriesTaxNumbers();
+    // return gamesCategoriesTaxNumbers();
+    const result = gameTypes.map(value => {
+        const pricesOrderedV = gameSales
+            .filter(value1 => {
+                // console.log(value1) ok
+                return value1.typeId === value.id;
+            })
+            .map(value1Map => {
+                return clients.find(val => val.id === value1Map.clientId);
+            })
+            .sort((a, b) => a.name.localeCompare(b.name));
+        // console.log(pricesOrderedV)
+        return {Qty:
+            pricesOrderedV.reduce((acc, sales) => acc + 1, 0)}
+
+    });
+
+    //console.log(result)
+
+    return Object.assign(
+        gameTypes.map((type) => type.name), {}, result.map(i => i.Qty), {}
+    );
+
+    // return gameTypes.map((type) => {
+    //     return Object.assign(type.name, {})
+    // })
+
+    // return Object.assign(gameTypes.map(value => {
+    //
+    //     return {
+    //         typeGame: value.name,
+    //         amountOfClients: pricesOrdered.reduce((acc, sales) => acc + 1, 0)
+    //         // pricesOrdered.map(sales => {
+    //         //     return sales.taxNumber;
+    //         // })
+    //     };
+    // }), {})
+
+
 };
 
 /**
