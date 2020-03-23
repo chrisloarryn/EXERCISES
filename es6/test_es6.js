@@ -207,6 +207,14 @@ const clientsIdsByName = () => {
 
 };
 
+
+const clientsIdsByName = () => {
+	return clients.sort(function (a, b) {
+		return a.name.localeCompare(b.name)
+	}).map(el => el.id);
+
+};
+
 /**
  * 3. Array with the clients sorted by the total they spent on games from highest to lowest.
  */
