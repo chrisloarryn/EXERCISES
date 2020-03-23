@@ -207,7 +207,9 @@ const clientsIdsByName = () => {
 
 };
 
-
+/*
+* 2. New version
+*/
 const clientsIdsByName = () => {
 	return clients.sort(function (a, b) {
 		return a.name.localeCompare(b.name)
