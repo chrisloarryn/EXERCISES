@@ -41,11 +41,17 @@ export class HomeComponent implements OnInit {
             }
           });
           // console.log(item);
-          newObj.push(item);
+          if (item) {
+            newObj.push(item);
+          }
         }
-        this.obtainedPokemons = newObj;
+
         // console.log(newObj);
-        this.loading = false;
+        if(this.obtainedPokemons) {
+          console.log(this.obtainedPokemons);
+          this.loading = false;
+          this.obtainedPokemons = newObj;
+        }
       },
       errorServicio => {
         this.loading = false;

@@ -1,17 +1,19 @@
 const express = require('express')
-const morgan = require('morgan')
 const app = express()
+
+const morgan = require('morgan')
+const cors = require('cors')
+const bodyParser = require('body-parser')
 
 const apiRoutes = require('./routes/apiRoutes')
 
 app.use(morgan('dev'))
-app.use(bodyParser.urlencoded({extended: true}))
-app.use(bodyParser.json)
+app.use(cors())
+app.options('*', cors())
+app.use(bodyParser.json({ limit: '10kb' }))
+app.use(bodyParser.urlencoded({ extended: true, limit: '10kb' }))
+
 
 app.use('/api/v1', apiRoutes)
-
-app.use('*', (req, res, next) => {
-    console.log('Could not find route')
-})
 
 module.exports = app

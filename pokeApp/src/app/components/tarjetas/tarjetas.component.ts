@@ -1,6 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {PokemonService} from '../../services/pokemon.service.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { PokemonService } from '../../services/pokemon.service.service';
 
 @Component({
   selector: 'app-tarjetas',
@@ -13,8 +13,7 @@ export class TarjetasComponent implements OnInit {
   textToFind: string;
 
   constructor(private ngRouter: Router,
-              public pokemonService: PokemonService) {
-
+    public pokemonService: PokemonService) {
   }
 
   ngOnInit(): void {
