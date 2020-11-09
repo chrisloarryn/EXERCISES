@@ -31,6 +31,11 @@ mat-card-title {
   margin-bottom: 4px !important;
 }
 
+.mat-chip-list .chips-mrgin > div .mat-chip-list-wrapper {
+  display: flex !important;
+  justify-content: space-between !important;
+}
+
 .red-my-color {
   color: white !important;
   background-color: cadetblue !important;
